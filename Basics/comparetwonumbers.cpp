@@ -1,4 +1,5 @@
-// This program is used to compare two numbers and return the number which is greater
+/* This program is used to compare two numbers and return the number which is greater
+*/
 
 #include<iostream>
 using namespace std;

@@ -1,4 +1,4 @@
-/* This program takes a number and prints whether its positive, negative or its zero*/
+/* This program takes number and prints whether its positive, negative or its zero*/
 
 #include<iostream>
 using namespace std;
@@ -11,7 +11,8 @@ int main()
 	if(a > 0)
 	{
 		cout << " a is postive"<< endl;
-	}else if(a<0)
+	}
+	else if(a<0)
 	{
 		cout << " a is negative " << endl;
 	}else

@@ -17,7 +17,7 @@ int main()
     {
         for(cols=1;cols<=rows;cols++)
         {
-            cout<< count<<" " ;
+            cout<< count<< " " ;
             count++;
         }
         cout<<endl;

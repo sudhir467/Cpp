@@ -1,13 +1,13 @@
 /*This program is to print the following pattern
-* * * * *
- * * * *
-  * * *
-   * *
-    *
-   * *
-  * * * 
- * * * *
-* * * * *
+1 2 3 4 5
+ 2 3 4 5
+  3 4 5
+   4 5
+    5
+   4 5
+  3 4 5
+ 2 3 4 5
+1 2 3 4 5
 */
 
 #include<iostream>
@@ -26,7 +26,13 @@ int main()
         }
         for(cols=1;cols<=n-rows+1;cols++)
         {
-            cout<<"*"<<" ";
+            if(rows==1){
+                cout<<cols<<" ";
+            }
+            else
+            {
+            cout<< cols+rows-1 <<" ";
+            }
         }
         cout<<endl;
     }
@@ -39,11 +45,14 @@ int main()
         }
         for(cols=1;cols<=n-spaces+1;cols++)
         {
-            cout<<"*"<<" ";
+            if(rows==5){
+                cout<<cols<<" ";
+            }
+            else
+            {
+            cout<< cols+(n-rows-1)<<" ";
+            }
         }
         cout<<endl;
     }
-
-
-
 }

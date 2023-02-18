@@ -1,12 +1,12 @@
 /*This program is to set a particular bit*/
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int setbit(int n, int k)
 {
-    int mask = 1 << k-1;
-    return n | mask;
+    n |= (1 << k - 1);
+    return n;
 }
 
 int main()

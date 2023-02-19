@@ -10,5 +10,5 @@ int removelastbit(int n)
 
 int main()
 {
-    cout << "After removing the last set bit value is :" << removelastbit(7) << endl;
+    cout << "After removing the last set bit value is :" << removelastbit(8) << endl;
 }

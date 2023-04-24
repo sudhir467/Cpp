@@ -1,22 +1,43 @@
 /*This program is to find the largest element in the array*/
 
-#include <iostream>
+/*
+#include <bits/stdc++.h>
 using namespace std;
+
+int sortArr(vector<int> &arr)
+{
+    sort(arr.begin(), arr.end());
+    return arr[arr.size() - 1];
+}
 
 int main()
 {
+    vector<int> arr1 = {2, 5, 1, 3, 0};
+    cout << "The largest element in the array is:" << sortArr(arr1) << endl;
+    return 0;
+}
+*/
 
-    int arr[5] = {1, 3, 4, 6, 1};
-    /*Brute force solution is to first sort the array and return the n-1 element
-    which will be the largest*/
-    /*Better solution is to traverse through each element and return the largets*/
-    int largest = 0;
-    for (int i = 0; i < 5; i++)
+#include <bits/stdc++.h>
+using namespace std;
+
+int findlargest(int arr[], int n)
+{
+    int max = arr[0];
+    for (int i = 0; i < n; i++)
     {
-        if (arr[i] > largest)
+        if (max < arr[i])
         {
-            largest = arr[i];
+            max = arr[i];
         }
     }
-    cout << largest << endl;
+    return max;
+}
+
+int main()
+{
+    int arr[] = {2, 5, 1, 3, 0};
+    int n = 5;
+    int max = findlargest(arr[], n);
+    cout << "The largest element in array is:" << max << endl;
 }

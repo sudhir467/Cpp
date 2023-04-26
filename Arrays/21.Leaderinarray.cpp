@@ -1,3 +1,4 @@
+/*This program is to print the leader in array*/
 #include <iostream>
 using namespace std;
 

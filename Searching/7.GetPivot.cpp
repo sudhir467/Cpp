@@ -1,9 +1,9 @@
-/*This program is to find the peak in the mountain array i.e. finding max number in array*/
+/*This program is to find the pivot in the sorted rotated arrray*/
 
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-int peakelement(int arr[], int n)
+int pivot(int arr[], int n)
 {
     int s = 0;
     int e = n - 1;
@@ -11,7 +11,7 @@ int peakelement(int arr[], int n)
 
     while (s < e)
     {
-        if (arr[mid] < arr[mid + 1])
+        if (arr[mid] >= arr[0])
         {
             s = mid + 1;
         }
@@ -19,6 +19,7 @@ int peakelement(int arr[], int n)
         {
             e = mid;
         }
+
         mid = s + (e - s) / 2;
     }
     return s;
@@ -26,9 +27,9 @@ int peakelement(int arr[], int n)
 
 int main()
 {
-    int arr[] = {1, 2, 5, 2, 1};
+    int arr[] = {8, 10, 17, 1, 3};
     int n = sizeof(arr) / sizeof(arr[0]);
-    int ans = peakelement(arr, n);
-    cout << "Peak element:" << ans << endl;
+    int ans = pivot(arr, n);
+    cout << "Pivot element is :" << ans << endl;
     return 0;
 }

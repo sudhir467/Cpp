@@ -23,7 +23,7 @@ int bubblesort(int a[], int n)
 }
 */
 
-/*Optimized insertion sort*/
+/*Optimized bubble sort*/
 int bubblesort(int a[], int n)
 {
     for (int i = 0; i < n - 1; i++)

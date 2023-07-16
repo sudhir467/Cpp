@@ -1,4 +1,4 @@
-/*In this program do linear search using recursion*/
+/*In this program lets do linear search using recursion*/
 
 #include <iostream>
 using namespace std;
@@ -16,7 +16,7 @@ int linearsearch(int arr[], int n, int key)
     else
     {
         bool other = linearsearch(arr + 1, n - 1, key);
-        return other;
+        return ;
     }
 }
 

@@ -19,6 +19,11 @@ public:
         this->data = data;
         this->next = NULL;
     }
+
+    ~Node()
+    {
+        cout << "Node with value:" << this->data << "deleted" << endl;
+    }
 };
 
 int findlength(Node *&head)
@@ -101,7 +106,7 @@ void insertatposition(int data, int position, Node *&head, Node *&tail)
     prev->next = newnode;
 }
 
-void print(Node *&head)
+void print(Node* &head)
 {
     Node *temp = head;
     while (temp != NULL)
@@ -109,6 +114,62 @@ void print(Node *&head)
         cout << temp->data << " ";
         temp = temp->next;
     }
+}
+
+void deletenode(int position, Node* &head, Node* &tail) {
+        if(head == NULL) {
+                cout << "Cannot delete, LL is empty";
+                return;
+        }
+
+        //deleting first node
+        if(position == 1) {
+                Node* temp = head;
+                head = head -> next;
+                temp -> next = NULL;
+                delete temp;
+                return;
+        }
+        int len  = findlength(head);
+
+
+        //deleting last node
+        if(position == len) {
+                //find prev
+                int i = 1;
+                Node* prev = head;
+                while(i < position - 1) {
+                        prev = prev->next;
+                        i++;
+                }
+                //step2:
+                prev->next = NULL;
+                //step3:
+                Node* temp = tail;
+                //step4:
+                tail = prev;
+                //step5:
+                delete temp;
+                return;
+        }
+
+        //deleting middle node
+
+        //step  : find prev and curr
+        int i =1;
+        Node* prev = head;
+        while( i < position-1) {
+                prev= prev -> next;
+                i++;
+        }
+        Node* curr = prev -> next;
+
+        //step2:
+        prev -> next = curr -> next;
+        //step3:
+        curr -> next = NULL;
+        //step4:
+        delete curr;
 }
 
 int main()
@@ -135,12 +196,17 @@ int main()
     cout << "printing the LL" << endl;
     print(head);
 
-    insertatposition(101, 5, head, tail);
-    cout << "Printing after insert at position call" << endl;
+    /* insertatposition(101, 5, head, tail);
+     cout << "Printing after insert at position call" << endl;
+     print(head);
+     cout << endl;
+     cout << "head: " << head->data << endl;
+     cout << "tail: " << tail->data << endl;
+ */
+    deletenode(2, head, tail);
+    cout << endl;
     print(head);
     cout << endl;
-    cout << "head: " << head->data << endl;
-    cout << "tail: " << tail->data << endl;
 
     return 0;
 }

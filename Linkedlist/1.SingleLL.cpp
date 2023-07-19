@@ -1,4 +1,4 @@
-/*This program is to create a single linked list in c++*/
+/*This program is to create,delete,print and traverse a single linked list in c++*/
 
 #include <iostream>
 using namespace std;

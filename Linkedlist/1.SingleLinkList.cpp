@@ -1,4 +1,5 @@
-/*This program is for single LL with just head pointer*/
+/*This program is to create, traverse, insert,delete nodes of single LL with just head pointer*/
+
 #include<iostream>
 using namespace std;
 

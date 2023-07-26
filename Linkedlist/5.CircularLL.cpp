@@ -44,123 +44,136 @@ int getlength(Node *&head)
     return len+1;
 }
 
-/*void insertathead(Node *&head, Node *&tail, int data)
+Node* insertnode(Node* &head,Node* &tail, int position, int data)
 {
-    if (head == NULL)
+    Node* temp=NULL;
+    Node* prev=NULL;
+    Node*forward=NULL;
+    Node* curr=NULL;
+
+    if(head==NULL)
     {
-        cout << "LL is empty" << endl;
-        Node *newnode = new Node(data);
-        head = newnode;
-        tail = newnode;
+        cout<<"LL is empty"<<endl;
+        Node* newnode=new Node(data);
+        head=newnode;
+        tail=newnode;
+        return 0;
     }
-    else
+
+    /*Inserting at the head of Circular LL*/
+    if(position<=1)
     {
-        Node *newnode = new Node(data);
-        Node *temp = newnode;
-        temp->next = head;
-        head = temp;
+        cout<<"Insert at the head"<<endl;
+        Node* newnode=new Node(data);
+        temp=newnode;
+        temp->next=head;
+        tail->next=temp;
+        head=temp;
+        return 0;
     }
+
+    int len=getlength(head);
+
+    /*Inserting at the tail of Circular LL*/
+    if(position>=len)
+    {
+        cout<<"Insert at the tail"<<endl;
+        Node *newnode=new Node(data);
+        temp=newnode;
+        temp->next=head;
+        tail->next=temp;
+        return 0;
+    }
+
+    /*Inserting at the position of Circular LL*/
+    if(position>1 && position<len)
+    {
+        cout<<"Insert at the position"<<endl;
+        prev=head;
+        forward=head;
+        curr=head;
+        int i=1;
+        while(i<position-1)
+        {
+            prev=prev->next;
+            i++;
+        }
+        forward=prev->next;
+
+        Node* newnode=new Node(data);
+        curr=newnode;
+        curr->next=forward;
+        prev->next=curr;
+    }
+    return 0;  
 }
 
-void insertattail(Node *&head, Node *&tail, int data)
+Node* deletenode(Node* &head, Node* &tail, int position)
 {
-    if (head == NULL)
+    Node* temp=NULL;
+    Node* prev=NULL;
+    Node* curr=NULL;
+    Node* forward=NULL;
+    if(head==NULL)
     {
-        Node *newnode = new Node(data);
-        head = newnode;
-        tail = newnode;
+        cout<<"LL is empty"<<endl;
     }
-    else
+
+    /*Delete from the head*/
+    if(position<=1)
     {
-        Node *newnode = new Node(data);
-        Node *temp = newnode;
-        tail->next = temp;
-        tail = temp;
+        cout<<"Delete from head"<<endl;
+        temp=head;
+        head=head->next;
+        temp->next=NULL;
+        tail->next=head;
+        delete(temp);
+        return 0;
     }
+
+    int len=getlength(head);
+
+    /*Delete from the tail*/
+    if(position>=len)
+    {
+        cout<<"Delete from the tail"<<endl;
+        prev=head;
+        int i=1;
+        while(i<position-1)
+        {
+            prev=prev->next;
+            i++;
+        }
+        curr=prev->next;
+        prev->next=head;
+        curr->next=NULL;
+        delete(curr);
+        return 0;
+    }
+
+    /*Delete from the position*/
+    if(position>1 && position<len)
+    {
+        cout<<"Delete from position"<<endl;
+        int i=1;
+        prev=head;
+        curr=head;
+        forward=head;
+        while(i<position-1)
+        {
+            prev=prev->next;
+            i++;
+        }
+        curr=prev->next;
+        forward=curr->next;
+
+        prev->next=forward;
+        curr->next=NULL;
+        delete(curr);
+    }
+
+    return 0;
 }
-
-void insertatposition(Node *&head, Node *&tail, int data, int position)
-{
-    if (head == NULL)
-    {
-        Node *newnode = new Node(data);
-        head = newnode;
-        tail = newnode;
-        return;
-    }
-
-    if (position == 0)
-    {
-        insertathead(head, tail, data);
-        return;
-    }
-
-    int len = getlength(head);
-
-    if (position > len)
-    {
-        insertattail(head, tail, data);
-        return;
-    }
-
-    int i = 1;
-    Node *prev = head;
-    while (i < position)
-    {
-        prev = prev->next;
-        i++;
-    }
-    Node *curr = prev->next;
-
-    Node *newnode = new Node(data);
-    Node *temp = newnode;
-    temp->next = curr;
-    prev->next = temp;
-}
-
-void delfromhead(Node *&head, Node *&tail)
-{
-    if (head == NULL)
-    {
-        cout << "LL is empty" << endl;
-        return;
-    }
-
-    Node *temp = head;
-    head = temp->next;
-    temp->next = NULL;
-    delete (temp);
-}
-
-// void delfromtail(Node* &head, Node* &tail,)
-
-void delnodeatposition(Node *&head, Node *&tail, int position)
-{
-    if (head == NULL)
-    {
-        cout << "LL is empty";
-        return;
-    }
-
-    if (position == 0)
-    {
-    }
-}
-
-Node *reversell(Node *head)
-{
-    Node *prev = NULL;
-    Node *curr = head;
-
-    while (curr != NULL)
-    {
-        Node *temp = head->next;
-        curr->next = prev;
-        prev = curr;
-        curr = temp;
-    }
-    return prev;
-}*/
 
 int main()
 {
@@ -179,28 +192,21 @@ int main()
     sixth->next=first;
 
     Node *head = first;
-    Node *tail=sixth;
+    Node* tail=sixth;
 
     print(head);
     cout << endl;
 
-    cout<<getlength(head)<<endl;
-    cout<<tail->data<<endl;
+    cout<<"length is:"<<getlength(head)<<endl;
 
-    /*insertathead(head, tail, 560);
+    insertnode(head,tail,1,500);
     print(head);
     cout << endl;
 
-    insertattail(head, tail, 580);
-    print(head);
-    cout << endl;
+    cout<<"length is:"<<getlength(head)<<endl;
 
-    insertatposition(head, tail, 1117, 0);
+    deletenode(head,tail,7);
     print(head);
     cout << endl;
-
-    delfromhead(head, tail);
-    print(head);
-    cout << endl;
-    // cout<<getlength(head)<<endl;*/
+    
 }

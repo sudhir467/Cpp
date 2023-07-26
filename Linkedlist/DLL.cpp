@@ -1,4 +1,4 @@
-/*This program is create,delete,traverse,print the Double LL using head pointer*/
+/*This program is create,delete,traverse,print the Double LL with just head pointer*/
 
 #include<iostream>
 using namespace std;
@@ -23,6 +23,7 @@ class Node{
     }
 };
 
+/*Function to print the DLL*/
 void print(Node* head)
 {
     Node* temp=head;
@@ -33,6 +34,7 @@ void print(Node* head)
     }
 }
 
+/*Function to get the length of the LL*/
 int getlength(Node* head)
 {
     int len=0;
@@ -45,6 +47,7 @@ int getlength(Node* head)
     return len;
 }
 
+/*Function to insert a node at position of LL*/
 Node* insertnode(Node* &head,int data,int position)
 {
     Node* temp=NULL;
@@ -59,7 +62,8 @@ Node* insertnode(Node* &head,int data,int position)
         head=newnode;
         return 0;
     }
-
+    
+    /*Insert at head*/
     if(position<=1)
     {
         cout<<"Insertion at head"<<endl;
@@ -72,6 +76,8 @@ Node* insertnode(Node* &head,int data,int position)
     }
 
     int len = getlength(head);
+
+    /*Insert a tail*/
     if(position>len)
     {
         cout<<"Insert at tail"<<endl;
@@ -88,6 +94,7 @@ Node* insertnode(Node* &head,int data,int position)
         return 0;
     }
 
+    /*Insert at position specified*/
     if(position>1 && position<=len)
     {
         cout<<"Insert at position"<<endl;
@@ -111,6 +118,7 @@ Node* insertnode(Node* &head,int data,int position)
     return 0;
 }
 
+/*Function to delete the node at particular position*/
 Node* deletenode(Node* &head, int position)
 {
     Node* temp1=NULL;
@@ -123,6 +131,7 @@ Node* deletenode(Node* &head, int position)
         cout<<"LL is empty"<<endl;
     }
 
+    /*Delete the node at head pointer*/
     if(position<=1)
     {
         cout<<"Delete from head"<<endl;
@@ -134,6 +143,8 @@ Node* deletenode(Node* &head, int position)
     }
 
     int len=getlength(head);
+
+    /*Delete node at tail of LL*/
     if(position>=len)
     {
         cout<<"Delete from tail"<<endl;
@@ -152,6 +163,7 @@ Node* deletenode(Node* &head, int position)
         return 0;
     }
 
+    /*Delete node from a position */
     if(position>1 && position<len)
     {
         cout<<"Delete from position"<<endl;

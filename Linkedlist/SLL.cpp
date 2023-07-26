@@ -19,7 +19,7 @@ class Node{
         this->next=NULL;
     }
 };
-
+/*Function to print the LL*/
 void print(Node* head)
 {
     if(head==NULL)
@@ -35,6 +35,7 @@ void print(Node* head)
     }
 }
 
+/*Function to get the length of LL*/
 int length(Node* head)
 {
     int len=0;
@@ -47,6 +48,7 @@ int length(Node* head)
     return len;
 }
 
+/*Function to insert node at head pointer*/
 Node* insertathead(Node* &head,int data)
 {
     if(head==NULL)
@@ -63,6 +65,7 @@ Node* insertathead(Node* &head,int data)
     return 0;
 }
 
+/*Function to insert a node at tail pointer*/
 Node* insertattail(Node* head,int data)
 {
     if(head==NULL)
@@ -84,6 +87,7 @@ Node* insertattail(Node* head,int data)
     return 0;
 }
 
+/*Function to insert a node at a particular position*/
 Node* insertatposition(Node* &head, int position, int data)
 {
     if(head==NULL)
@@ -123,7 +127,7 @@ Node* insertatposition(Node* &head, int position, int data)
     return 0;
 
 }
-
+ /*Function to delete the node from a particular position*/
 Node* deletenode(Node* &head,int position)
 {
     Node* temp=NULL;

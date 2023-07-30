@@ -189,6 +189,31 @@ Node* deletenode(Node* &head, int position)
 
 }
 
+/*Function to reverse DLL*/
+Node* reverseDLL(Node* &head)
+{
+    if(head==NULL)
+    {
+        cout<<"LL is empty"<<endl;
+    }
+
+    Node* back=NULL;
+    Node* forward=head;
+    Node* curr=head;
+
+    while(curr!=NULL)
+    {
+        forward=forward->next;
+        curr->next=back;
+        curr->prev=forward;
+        back=curr;
+        curr=forward;
+        head=back;
+    }
+
+    return back;
+}
+
 int main()
 {
     Node* first=new Node(10);
@@ -215,6 +240,11 @@ int main()
     cout<<endl;
 
     deletenode(head,1);
+    print(head);
+    cout<<endl;
+
+    cout<<"After reversing the LL:"<<endl;
+    reverseDLL(head);
     print(head);
     cout<<endl;
 

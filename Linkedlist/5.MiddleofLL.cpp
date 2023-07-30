@@ -80,7 +80,6 @@ int main()
     Node* head=first;
     print(head);  
 
-   
     cout<<"Middle Node is:"<<middleofLL(head)->data <<endl;
 
     return 0;

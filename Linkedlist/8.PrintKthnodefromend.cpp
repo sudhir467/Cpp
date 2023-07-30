@@ -1,4 +1,5 @@
-/*This program is to reverse the Linked list in K nodes*/
+/* This program is to print kth node from the end*/
+
 #include<iostream>
 using namespace std;
 
@@ -7,8 +8,7 @@ class Node{
     int data;
     Node* next;
 
-    Node()
-    {
+    Node(){
         this->data=0;
         this->next=NULL;
     }
@@ -20,7 +20,7 @@ class Node{
     }
 };
 
-void print(Node* &head)
+void print(Node* head)
 {
     Node* temp=head;
     while(temp!=NULL)
@@ -30,7 +30,7 @@ void print(Node* &head)
     }
 }
 
-int getlength(Node* head)
+int getlength(Node* &head)
 {
     int len=0;
     Node* temp=head;
@@ -42,42 +42,23 @@ int getlength(Node* head)
     return len;
 }
 
-Node* reverseknodes(Node* &head, int k)
+/*Function to print the Kth node from end*/
+Node* printkthnode(Node* head,int k)
 {
-    if(head==NULL)
-    {
-        cout<<"LL is empty"<<endl;
-        return NULL;
-    }
-
+    Node* temp=head;
     int len=getlength(head);
-
-    if(k>len)
+    int position=len-k;
+    int i=0;
+    while(i<=position)
     {
-        return head;
+        if(i==position)
+        {
+            cout<<temp->data<<endl;
+        }
+        temp=temp->next;
+        i++;  
     }
-
-    Node* prev=NULL;
-    Node* curr=head;
-    Node* forward=head->next;
-    int count=0;
-
-    while(count<k)
-    {
-        forward=curr->next;
-        curr->next=prev;
-        prev=curr;
-        curr=forward;
-        count++;
-    }
-    
-    if(forward!=NULL)
-    {
-        Node* reverseans=reverseknodes(forward,k);
-        head->next=reverseans;
-    }
-
-    return prev;
+    return 0;
 }
 
 int main()
@@ -96,12 +77,14 @@ int main()
     fifth->next=sixth;
 
     Node* head=first;
-
-
-    print(head);
-    cout<<endl;
-    head = reverseknodes(head, 3);
+    
     print(head);
     cout<<endl;
 
+    cout<<getlength(head)<<endl;
+
+    printkthnode(head,6);
+
+
+    return 0;
 }

@@ -83,6 +83,6 @@ int main()
 
     Node* head=first;
 
-
+    return 0;
 
 }

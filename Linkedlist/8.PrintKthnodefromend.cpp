@@ -20,6 +20,7 @@ class Node{
     }
 };
 
+/*Function to print the LL*/
 void print(Node* head)
 {
     Node* temp=head;
@@ -30,6 +31,7 @@ void print(Node* head)
     }
 }
 
+/*Function to get the length*/
 int getlength(Node* &head)
 {
     int len=0;

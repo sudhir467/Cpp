@@ -19,6 +19,7 @@ class Node{
     }
 };
 
+/*Function to print LL*/
 void print(Node* head)
 {
     if(head==NULL)
@@ -34,12 +35,16 @@ void print(Node* head)
     }
 }
 
+/*Function to remove duplicates*/
 Node* RemoveDuplicates(Node* &head)
 {
+    /*For case where only no node*/
     if(head==NULL)
     {
         cout<<"LL is empty"<<endl;
     }
+
+    /*For case where only one node*/
 
     if(head->next==NULL)
     {
@@ -49,6 +54,7 @@ Node* RemoveDuplicates(Node* &head)
 
     Node* curr=head;
 
+    /*Logic when there are more than one nodes*/
     while(curr != NULL)
     {
         if((curr -> next != NULL) && (curr -> data == curr -> next -> data) ) 

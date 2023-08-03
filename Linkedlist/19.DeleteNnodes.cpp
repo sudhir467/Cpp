@@ -1,1 +1,0 @@
-/*This program is to delete N nodes after M nodes*/

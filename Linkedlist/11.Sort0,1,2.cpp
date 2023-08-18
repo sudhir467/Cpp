@@ -1,4 +1,4 @@
-/*Program to sort LL 0,1,2*/
+/*This Program is to sort LL in terms of 0,1,2*/
 #include<iostream>
 using namespace std;
 

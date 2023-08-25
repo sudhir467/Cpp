@@ -1,0 +1,1 @@
+/*This program is to remove middle element of the stack*/

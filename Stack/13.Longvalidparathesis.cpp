@@ -1,6 +1,5 @@
 /* This program is to find the longest valid paranthesis*/
 
-
 #include <bits/stdc++.h>
 using namespace std;
 int longestvalidparanthesis(string &str)
@@ -34,7 +33,6 @@ int longestvalidparanthesis(string &str)
     return maxlen;
 
 }
-
 
 int main()
 {
